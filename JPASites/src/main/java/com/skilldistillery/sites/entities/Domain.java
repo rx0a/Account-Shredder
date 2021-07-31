@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Domain {
 
@@ -14,6 +16,7 @@ public class Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String domain;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "site_id")
 	private Site site;
