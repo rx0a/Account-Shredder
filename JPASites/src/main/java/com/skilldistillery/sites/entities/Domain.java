@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Domain {
@@ -12,6 +14,13 @@ public class Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String domain;
+	@ManyToOne
+	@JoinColumn(name = "site_id")
+	private Site site;
+
+	public Domain() {
+		super();
+	}
 
 	public int getId() {
 		return id;
@@ -27,6 +36,14 @@ public class Domain {
 
 	public void setDomain(String domain) {
 		this.domain = domain;
+	}
+
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
 	}
 
 	@Override
@@ -55,5 +72,4 @@ public class Domain {
 			return false;
 		return true;
 	}
-
 }

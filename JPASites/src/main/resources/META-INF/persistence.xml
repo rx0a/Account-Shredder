@@ -4,6 +4,7 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
         <class>com.skilldistillery.sites.entities.Site</class>
+        <class>com.skilldistillery.sites.entities.Domain</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sitedb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
       <property name="javax.persistence.jdbc.user" value="siteuser"/>

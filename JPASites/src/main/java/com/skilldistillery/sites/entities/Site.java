@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Site {
@@ -28,7 +29,8 @@ public class Site {
 	private String email;
 	private String email_subject;
 	private String email_body;
-	private List<String> domains;
+	@OneToMany(mappedBy = "site")
+	private List<Domain> domains;
 
 	public Site() {
 		super();
@@ -162,11 +164,11 @@ public class Site {
 		this.email_body = email_body;
 	}
 
-	public List<String> getDomains() {
+	public List<Domain> getDomains() {
 		return domains;
 	}
 
-	public void setDomains(List<String> domains) {
+	public void setDomains(List<Domain> domains) {
 		this.domains = domains;
 	}
 

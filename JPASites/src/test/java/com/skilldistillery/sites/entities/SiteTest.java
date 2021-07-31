@@ -42,9 +42,10 @@ class SiteTest {
 	}
 
 	@Test
-	void test() {
+	void test_site_domain_mapping() {
 		assertNotNull(site);
-		assertEquals("twitter", site.getName());
+		assertEquals("e.foundation", site.getDomains().get(0).getDomain());
 	}
+
 
 }
