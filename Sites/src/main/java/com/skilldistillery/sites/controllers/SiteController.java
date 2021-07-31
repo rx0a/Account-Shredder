@@ -36,7 +36,8 @@ public class SiteController {
 	@GetMapping("sites/search/{keyword}")
 	public List<Site> siteByKeyword(@PathVariable String keyword, HttpServletResponse res) {
 		List<Site> sites = svc.sitesByKeyword(keyword);
-		if (sites == null) {
+		System.out.println(sites);
+		if (sites.isEmpty()) {
 			res.setStatus(404);
 		}
 		return sites;
