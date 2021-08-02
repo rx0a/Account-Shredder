@@ -1,7 +1,10 @@
 # Event Tracker Project 
 
-## Overview
 Many companies use [dark patterns](https://www.darkpatterns.org/) to make it difficult to find how to delete your account. This application aims to be a directory of urls to enable you to easily delete your account from web services.
+
+## Overview
+
+This is a full stack JPA CRUD project that is written in Java and utilizes Sprring boot and Spring REST apis.
 
 ## Technologies Used
 
