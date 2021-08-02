@@ -1,6 +1,6 @@
 # Event Tracker Project 
 
-Many companies use [dark patterns](https://www.darkpatterns.org/) to make it difficult to find how to delete your account. This application aims to be a directory of urls to enable you to easily delete your account from web services.
+Many companies use [dark patterns](https://www.darkpatterns.org/) to make it difficult to find how to delete your account. This application helps users navigate through the dark patterns to help them delete their accounts.
 
 ## Overview
 
