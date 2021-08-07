@@ -6,13 +6,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.sites.entities.Domain;
 import com.skilldistillery.sites.entities.Site;
+import com.skilldistillery.sites.respositories.DomainRepository;
 import com.skilldistillery.sites.respositories.SiteRepository;
 
 @Service
 public class SiteServiceImpl implements SiteService {
 	@Autowired
 	private SiteRepository repo;
+	@Autowired
+	private DomainRepository drepo;
 
 	@Override
 	public Site FindById(int id) {
@@ -42,6 +46,13 @@ public class SiteServiceImpl implements SiteService {
 
 	@Override
 	public void delete(int id) {
+		Site site = FindById(id);
+		if (site.getDomains() != null) {
+		List<Domain> domains = site.getDomains();
+		for (Domain domain : domains) {
+			drepo.deleteById(domain.getId());
+		}
+		} 
 		repo.deleteById(id);
 	}
 

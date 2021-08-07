@@ -1,5 +1,6 @@
 package com.skilldistillery.sites.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Site {
@@ -31,6 +35,9 @@ public class Site {
 	private String email_body;
 	@OneToMany(mappedBy = "site")
 	private List<Domain> domains;
+	private String status;
+	@UpdateTimestamp
+	private LocalDateTime updated;
 
 	public Site() {
 		super();
@@ -172,13 +179,29 @@ public class Site {
 		this.domains = domains;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public LocalDateTime getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(LocalDateTime updated) {
+		this.updated = updated;
+	}
+
 	@Override
 	public String toString() {
 		return "Site [id=" + id + ", name=" + name + ", url=" + url + ", difficulty=" + difficulty + ", notes=" + notes
 				+ ", notes_fr=" + notes_fr + ", notes_ru=" + notes_ru + ", notes_tr=" + notes_tr + ", notes_it="
 				+ notes_it + ", notes_pt_br=" + notes_pt_br + ", notes_cat=" + notes_cat + ", notes_es=" + notes_es
 				+ ", notes_pl=" + notes_pl + ", email=" + email + ", email_subject=" + email_subject + ", email_body="
-				+ email_body + ", domains=" + domains + "]";
+				+ email_body + ", domains=" + domains + ", status=" + status + ", updated=" + updated + "]";
 	}
 
 	@Override

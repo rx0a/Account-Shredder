@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Account Shredder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-dark.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script type="text/javascript" src="js/script.js"></script>
+<style>
+td {
+	text-align: left;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.btn {
+	border: none;
+}
+
+.btn:hover, .btn:focus, .btn:active {
+	background: none;
+	color: #ffffff;
+}
+
+#title2 {
+	background-image: url('bg.jpeg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: bottom;
+}
+
+#title {
+	text-shadow: 2px 2px #303030;
+}
+
+#searchbar {
+	width: 500px;
+	margin: auto;
+}
+
+#input1 {
+	background-image: url('search1.png');
+	background-position: 14px 11px;
+	background-repeat: no-repeat;
+	background-size: 15px;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
+
+.footer {
+	left: 0;
+	bottom: 15px;
+	width: 100%;
+	text-align: center;
+}
+
+.siteSection {
+	display: grid;
+	grid-gap: 20px 14px;
+	grid-template-columns: repeat(4, 1fr);
+	margin: 0 auto;
+	max-width: 1000px;
+	min-height: 143px;
+	padding: 30px 0;
+}
+
+.info-block-half, .banner-block .banner-block-half {
+	float: left;
+	padding: 0 20px;
+	width: 50%;
+}
+
+.info-block {
+	background-color: #293840;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.easy {
+	background-color: #033904;
+}
+
+.medium {
+	background-color: #523800;
+}
+
+.hard {
+	background-color: #4f0104;
+}
+
+.impossible {
+	background-color: #000000;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	margin-left: 25%;
+	top: 0;
+	width: 600px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+}
+
+.modeForm {
+	margin: auto;
+}
+
+.modal-content {
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+.close {
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	left: 88%;
+}
+
+.close:hover, .close:focus {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#btn2 {
+	height: 100%;
+	width: 60px;
+	font-size: 20px;
+}
+
+.guide {
+	border-radius: 5px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 5px;
+}
+
+.form-label {
+	padding-right: 20px;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+#count {
+	padding-left: 80px;
+	margin-bottom: -10px;
+}
+
+#badSearch {
+	display: none;
+	padding-left: 80px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #4f0104;
+}
+
+.f1 {
+	margin-top: -15px;
+	margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<main>
+		<section style="height: 250px;" class="jumbotron text-center"
+			id="title2">
+			<div class="container">
+				<h1 class="jumbotron-heading " id="title">Welcome to Account
+					Shredder</h1>
+				<br>
+				<p class="lead " id="title">
+					Navigate through the <a href="https://www.darkpatterns.org/">
+						dark patterns </a> and delete unwanted accounts.
+				</p>
+			</div>
+			<div class="searchbar" id="searchbar">
+				<form class="d-flex searchform">
+					<input class="form-control me-2" id="input1" type="text"
+						name="keyword"> &nbsp;&nbsp;&nbsp;
+					<!-- MODAL START -->
+					<!-- Trigger/Open The Modal -->
+					<button class="btn btn-outline-light" id="btn2">
+						<i class="fa fa-plus"></i>
+					</button>
+				</form>
+			</div>
+		</section>
+		<div id="myModal" class="modal ">
+			<form name="inputForm " class="text-center" class="modeform">
+				<!-- The Modal -->
+
+				<!-- Modal content -->
+				<div class="modal-content card-header text-center">
+					<span class="close">&times;</span>
+					<div class="createForm ">
+						<h3>Add a Site</h3>
+						<br>
+						<div class="info d-flex">
+							<label for="name" class="form-label"> Name </label> <input
+								class="form-control me-2" type="text" name="name" />
+						</div>
+
+						<div class="info d-flex">
+							<label for="url" class="form-label"> Url </label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="form-control me-2"
+								type="text" name="url" />
+						</div>
+
+						<div class="info d-flex">
+							<label for="notes" class="form-label"> Notes </label>
+							<textarea class="form-control me-2" rows="2" name="notes"></textarea>
+						</div>
+						<br>
+						<div class="info d-flex">
+							<label for="difficulty" class="form-label"> Difficulty </label> <select
+								name="difficulty" required
+								class="form-select bg-dark text-light">
+								<option selected>Select...</option>
+								<option value="easy">Easy</option>
+								<option value="medium">Medium</option>
+								<option value="hard">Hard</option>
+								<option value="impossible">Impossible</option>
+							</select>
+						</div>
+						<button class="btn btn-outline-light pull-right"
+							style="font-size: 20px; padding-right: 30px; margin-top: -40px;"
+							id="btn3" type="submit">
+							<i class="fa fa-download"></i>
+						</button>
+
+					</div>
+				</div>
+				<!-- MODAL END -->
+			</form>
+		</div>
+		<p id="count"></p>
+		<p id="badSearch"></p>
+		<section class="siteSection" id="siteSection"></section>
+	</main>
+	<section id="about" class="info-block about">
+		<div class="info-container">
+			<div class="info-block-half">
+				<h2>What is this?</h2>
+				<p>
+					Many companies employ <a href='https://darkpatterns.org'>dark
+						patterns</a> to make it difficult for their users to delete their
+					accounts and personal information from their web applications. This
+					application helps users navigate through these patterns and allows
+					them to easily remove their accounts from a variety of web
+					services.
+				</p>
+			</div>
+			<div class="info-block-half">
+				<h2>Guide</h2>
+				<p>The links above are colour-coded to indicate the difficulty
+					level of account deletion:</p>
+
+				<p class="easy guide">
+					<span class="difficulty">Easy</span> - Simple process
+				</p>
+				<p class="medium guide">
+					<span class="difficulty">Medium</span> - Some extra steps involved
+				</p>
+				<p class="hard guide">
+					<span class="difficulty">Hard</span> - Cannot be fully deleted
+					without contacting customer services
+				</p>
+				<p class="impossible guide">
+					<span class="difficulty">Impossible</span> - Cannot be deleted
+				</p>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>
