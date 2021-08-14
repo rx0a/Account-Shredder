@@ -4,7 +4,7 @@ Many companies employ [dark patterns](https://www.darkpatterns.org/) to make it 
 
 ## Overview
 
-This is a full stack JPA CRUD project that is written in Java and utilizes Sprring boot and Spring REST APIs.
+This is a full stack JPA CRUD project that is written in Java and utilizes Spring boot and Spring REST APIs.
 The API calls are done with AJAX and dynamically displayed with Javascript.
 
 ## Technologies Used
