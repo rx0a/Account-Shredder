@@ -4,11 +4,13 @@ Many companies employ [dark patterns](https://www.darkpatterns.org/) to make it 
 
 ## Overview
 
-This is a full stack JPA CRUD project that is written in Java and utilizes Sprring boot and Spring REST apis.
+This is a full stack JPA CRUD project that is written in Java and utilizes Sprring boot and Spring REST APIs.
+The API calls are done with AJAX and dynamically displayed with Javascript.
 
 ## Technologies Used
 
 * [Java](https://en.wikipedia.org/wiki/Java_)</br>
+* [Javascript](https://www.javascript.com/)</br>
 * [Object-Oriented design](https://stackabuse.com/object-oriented-design-principles-in-java)</br>
 * [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer)<br>
 * [Spring Framework](https://en.wikipedia.org/wiki/Spring_Framework#Spring_Boot)<br>
@@ -26,11 +28,7 @@ This is a full stack JPA CRUD project that is written in Java and utilizes Sprri
 |`Site`         | `PUT api/sites`                 | Updates a site             |
 |`void`         | `DELETE api/sites/{id}`         | Deletes a site             |
 
-## TODO
-- [ ] Update Readme after completing frontend(Technologies used, how to run)
-- [ ] Add more sites to database.
-
 ## Acknowledgements
-* A special thank you to [Skill Distillery](https://www.skilldistillery.com/) instructors and 29th cohort for their help with the project.<br>
+* A special thank you to [Skill Distillery](https://www.skilldistillery.com/) instructors.<br>
 * This application uses data from the [jdm](https://github.com/jdm-contrib/jdm) project under MIT License.
 
