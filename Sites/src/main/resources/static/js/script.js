@@ -248,7 +248,6 @@ function showModal() {
 	// Get the <span> element that closes the modal
 	let span = document.getElementsByClassName("close")[0];
 	modal.style.display = "block";
-	console.log('in modal')
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
 		modal.style.display = "none";
@@ -265,7 +264,7 @@ function create() {
 	event.preventDefault();
 	let form = document.inputForm;
 	// Create the site and send it
-	var site = {
+	let site = {
 		name: form.name.value,
 		url: form.url.value,
 		notes: form.notes.value,
@@ -339,8 +338,6 @@ function updateSite(site) {
 			}
 		}
 	}
-	console.log(site);
 	var siteJson = JSON.stringify(site);
-	console.log(siteJson);
 	xhr.send(siteJson);
 }

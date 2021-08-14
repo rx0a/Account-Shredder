@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skilldistillery.sites.entities.Site;
 import com.skilldistillery.sites.services.SiteService;
 import com.skilldistillery.sites.upload.UploadSites;
-
+@CrossOrigin({ "*", "http://localhost:4210" })
 @RequestMapping("api")
 @RestController
 public class SiteController {
