@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `site` (
   `email_subject` VARCHAR(450) NULL,
   `email_body` VARCHAR(450) NULL,
   `status` VARCHAR(100) NULL,
-  `updated` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` TIMESTAMP NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

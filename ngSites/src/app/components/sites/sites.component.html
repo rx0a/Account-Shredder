@@ -22,7 +22,9 @@
         </div>
         <div class="searchbar" id="searchbar">
             <form class="d-flex searchform">
-                <input class="form-control me-2" id="input1" type="text" name="keyword"> &nbsp;&nbsp;&nbsp;
+                <!-- <input class="form-control me-2" id="input1" type="text" name="keyword" (keyup)="kwsearch($event)"> &nbsp;&nbsp;&nbsp; -->
+                <input class="form-control me-2" id="input1" type="text" name="keyword" #keyword (keyup)="kwsearch(keyword.value)"> &nbsp;&nbsp;&nbsp;
+
                 <!-- MODAL START -->
                 <!-- Trigger/Open The Modal -->
                 <button class="btn btn-outline-light bsearch" id="btn2" (click)="open(content)">
@@ -38,14 +40,14 @@
                 Add new site
             </h4>
             <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      
+
                 <span aria-hidden="true">
                     ×
                 </span>
             </button>
         </div>
-        <div class="modal-body modal-content">
-            <form>
+        <form>
+            <div class="modal-body modal-content">
                 <div class="info d-flex">
                     <label for="name" class="form-label"> Name </label> <input class="form-control me-2" type="text" name="name" [(ngModel)]="newSite.name" />
                 </div>
@@ -65,26 +67,71 @@
                         <option value="impossible">Impossible</option>
                     </select>
                 </div>
-            </form>
-        </div>
-        <div class="modal-footer" [ngClass]="checkDifficulty()">
-            <button class="btn btn-outline-light pull-right" (click)="modal.close(addSite())" id="btn3" type="submit">
-            Save&nbsp;&nbsp;<i class="fa fa-download"></i>
-        </button>
-        </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-light pull-right" (click)="modal.close(addSite())" id="btn3" type="submit">
+                    Save&nbsp;&nbsp;<i class="fa fa-download"></i>
+                </button>
+            </div>
+        </form>
     </ng-template>
+    <section class="siteSection" id="siteSection">
+        <div class="card" *ngFor="let site of sites">
+            <div class="card-header {{site.difficulty}}" id="cardHeaders" (click)="navigate(site.url)">
+                {{site.name}}
 
-    <ul>
-        <li *ngFor="let site of sites">{{site.id}}: {{site.name}}</li>
-    </ul>
+            </div>
+
+            <div *ngIf="!editSite && selected === site" class="card-body tooltip-content" id='siteDetails'>
+                <p>{{showNotes(site.notes)}}</p>
+                <p>{{site.status}}</p>
+                <hr>
+                <p>Updated: {{showUpdated(site.updated)}}</p>
+                <button class="btn btn-outline-danger fa fa-trash pull-left" (click)="deleteSite(site.id)"></button>
+                <button class="btn btn-outline-warning fa fa-pencil-square-o pull-right" (click)="setEditSite()"></button>
+            </div>
+
+            <div *ngIf="editSite && site === selected" class="card-body tooltip-content" id='siteDetails'>
+                <p>Name</p>
+                <input class="form-control me-2 f1" type="text" name="name" placeholder={{editSite.name}} [(ngModel)]="editSite.name">
+                <p>Url</p>
+                <input class="form-control me-2 f1" type="text" name="url" placeholder={{editSite.url}} [(ngModel)]="editSite.url">
+                <p>Notes</p>
+                <textarea class="form-control me-2  f1" name="notes" placeholder="{{editSite.notes}}" [(ngModel)]="editSite.notes" rows="3"></textarea>
+                <p>Difficulty</p>
+                <select class="form-control me-2  f1" name="difficulty" [(ngModel)]="editSite.difficulty">
+                    <option>Select...</option>
+                    <option value="easy">easy</option>
+                    <option value="medium">medium</option>
+                    <option value="hard">hard</option>
+                    <option value="impossible">impossible</option>
+                </select>
+                <button class="btn btn-outline-warning fa fa-floppy-o pull-right" (click)="updateSite(editSite)"></button>
+                <button class="btn btn-outline-danger fa fa-times pull-left" (click)="cancelEditSite()"></button>
+            </div>
+
+
+            <div *ngIf="footerShow === true && selected !== site;" class="card-footer" id="cardFooter" (click)="cancelEditSite()" (click)="displaySite(site)" (click)="footerStatus()">
+                <p id="info" class="{{showInfoColor(site.notes)}}"> SHOW INFO...</p>
+            </div>
+            <div *ngIf=" selected === site" class="card-footer" id="cardFooter" (click)="displayTable()" (click)="footerStatus()">
+                <p id="info" class="{{showInfoColor(site.notes)}}"> HIDE INFO...</p>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
     <section id="about" class="info-block about">
         <div class="info-container">
             <div class="info-block-half">
                 <h2>What is this?</h2>
                 <p>
                     Many companies employ <a href='https://darkpatterns.org'>dark
-						patterns</a> to make it difficult for their users to delete their accounts and personal information from their web applications. This application helps users navigate through these patterns and allows them to easily remove their accounts from a
-                    variety of web services.
+                        patterns</a> to make it difficult for their users to delete their accounts and personal information from their web applications. This application helps users navigate through these patterns and allows them to easily remove their
+                    accounts from a variety of web services.
                 </p>
             </div>
             <div class="info-block-half">

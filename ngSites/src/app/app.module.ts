@@ -8,6 +8,8 @@ import { SiteService } from './services/site.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SitesComponent } from './components/sites/sites.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastNotificationsModule } from 'ngx-toast-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastNotificationsModule,
   ],
   providers: [SiteService],
   bootstrap: [AppComponent]
