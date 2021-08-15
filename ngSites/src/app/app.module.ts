@@ -5,18 +5,22 @@ import { HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiteService } from './services/site.service';
-import { SitesListComponent } from './components/sites-list/sites-list.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SitesComponent } from './components/sites/sites.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SitesListComponent
+    NotFoundComponent,
+    SitesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [SiteService],
   bootstrap: [AppComponent]

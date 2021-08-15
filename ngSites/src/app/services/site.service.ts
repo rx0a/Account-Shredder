@@ -8,21 +8,60 @@ import { Site } from '../models/site';
   providedIn: 'root'
 })
 export class SiteService {
-
-  baseUrl = 'http://localhost:8084/';
-  url = this.baseUrl + 'api/sites';
+  private baseUrl = 'http://localhost:8084/';
+  private url = this.baseUrl + 'api/sites';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  index(): Observable<Site[]> {
+  public index(): Observable<Site[]> {
     return this.http.get<Site[]>(this.url).pipe(
       catchError((err: any) => {
         console.error('SiteService.index(): Error getting index');
         return throwError(err);
       })
     );
-
 }
+// New additions from todo //
+public show(siteId: any) {
+  return this.http.get<Site>(this.url + '/' + siteId)
+    .pipe(
+      catchError((err: any) => {
+        console.log('TodoService.show(): error retrieving todo id ' + siteId);
+        return throwError(err);
+      })
+    );
+}
+
+public create(site: Site){
+console.log(site);
+return this.http.post<Site>(this.url, site,)
+.pipe(
+  catchError(this.handleError)
+);
+}
+handleError(error: any) {
+console.error(error);
+return throwError(error.json().error || 'Server Error');
+}
+
+public destroy(id: number): Observable<void> {
+return this.http.delete<void>(`${this.url}/${id}`).pipe(
+catchError((err: any) => {
+  console.error('SiteService.destroy(): error deleting site');
+  return throwError(err);
+})
+);
+}
+
+public update(site: Site): Observable<Site> {
+return this.http.put<Site>(`${this.url}/${site.id}`, site).pipe(
+catchError((err: any) => {
+  console.error('SiteService.update(): error updating site');
+  return throwError(err);
+})
+);
+}
+
 }
