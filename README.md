@@ -6,7 +6,7 @@ Many companies employ [dark patterns](https://www.darkpatterns.org/) to make it 
 
 This is a full stack JPA CRUD project that is written in Java and utilizes Spring boot and Spring REST APIs.
 <!-- The API calls are done with AJAX and dynamically displayed with Javascript. -->
-The frontend is now completely rewritten in Typescript to use Angular.
+The frontend is now completely rewritten in Typescript and utilizes Angular Framework.
 
 ## Technologies Used
 * [Angular](https://angular.io/)</br>
@@ -29,6 +29,13 @@ The frontend is now completely rewritten in Typescript to use Angular.
 |`Site`         | `POST api/sites`                | Creates a new site         |
 |`Site`         | `PUT api/sites`                 | Updates a site             |
 |`void`         | `DELETE api/sites/{id}`         | Deletes a site             |
+
+## Demo Site
+Coming Soon.
+
+## Build from source
+If you are familar with Spring framework and Angular, you can build the app from source and run your own instance.
+To build from source, you will need to run the Spring boot backend on a tomcat server or similar. Then navigate to the ngSites directory and run the frontend using Angular CLI. Current port for Spring is 8500, and for Angular 4200, you can adjust them if you like. If you visit the Spring port from your browser, you will see the previous version of the app which has a pure Javascript frontend. If you visit the Angular port you will experience the new frontend written from scratch in Typescript.
 
 ## Acknowledgements
 * A special thank you to [Skill Distillery](https://www.skilldistillery.com/) instructors.<br>
