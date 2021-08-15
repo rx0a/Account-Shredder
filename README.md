@@ -5,10 +5,12 @@ Many companies employ [dark patterns](https://www.darkpatterns.org/) to make it 
 ## Overview
 
 This is a full stack JPA CRUD project that is written in Java and utilizes Spring boot and Spring REST APIs.
-The API calls are done with AJAX and dynamically displayed with Javascript.
+<!-- The API calls are done with AJAX and dynamically displayed with Javascript. -->
+The frontend is now completely rewritten in Typescript to use Angular.
 
 ## Technologies Used
-
+* [Angular](https://angular.io/)</br>
+* [Typescript](https://www.typescriptlang.org/)</br>
 * [Java](https://en.wikipedia.org/wiki/Java_)</br>
 * [Javascript](https://www.javascript.com/)</br>
 * [Object-Oriented design](https://stackabuse.com/object-oriented-design-principles-in-java)</br>
