@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 import { Site } from '../models/site';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SiteService {
-  private baseUrl = 'http://localhost:8084/';
-  private url = this.baseUrl + 'api/sites';
+  private url = environment.baseUrl+ 'api/sites';
 
   constructor(
     private http: HttpClient
