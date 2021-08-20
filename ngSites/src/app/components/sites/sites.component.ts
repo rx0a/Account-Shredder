@@ -29,7 +29,7 @@ export class SitesComponent implements OnInit {
   ngOnInit(): void {
     this.loadSites();
   }
-  // Got these from the modal tutorial //
+  // MODAL STUFF //
   open(content: any) {
     this.modalService.open(content,
       { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
