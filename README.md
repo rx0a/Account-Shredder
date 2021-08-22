@@ -31,7 +31,7 @@ The frontend is now completely rewritten in Typescript and utilizes Angular Fram
 |`void`         | `DELETE api/sites/{id}`         | Deletes a site             |
 
 ## Demo Site
-Coming Soon.
+http://52.8.239.60:8080/Sites/#/sites
 
 ## Build from source
 If you are familar with Spring framework and Angular, you can build the app from source and run your own instance.
