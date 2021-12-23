@@ -30,8 +30,8 @@ The frontend is now completely rewritten in Typescript and utilizes Angular Fram
 |`Site`         | `PUT api/sites`                 | Updates a site             |
 |`void`         | `DELETE api/sites/{id}`         | Deletes a site             |
 
-## Demo Site
-http://52.8.239.60:8080/Sites/#/sites
+<!-- ## Demo Site
+http://52.8.239.60:8080/Sites/#/sites -->
 
 ## Build from source
 If you are familar with Spring framework and Angular, you can build the app from source and run your own instance.
