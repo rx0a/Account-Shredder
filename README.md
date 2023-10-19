@@ -5,7 +5,6 @@ Many companies employ [dark patterns](https://www.darkpatterns.org/) to make it 
 ## Overview
 
 This is a full stack JPA CRUD project that is written in Java and utilizes Spring boot and Spring REST APIs.
-<!-- The API calls are done with AJAX and dynamically displayed with Javascript. -->
 The frontend is now completely rewritten in Typescript and utilizes Angular Framework.
 
 ## Technologies Used
@@ -29,9 +28,6 @@ The frontend is now completely rewritten in Typescript and utilizes Angular Fram
 |`Site`         | `POST api/sites`                | Creates a new site         |
 |`Site`         | `PUT api/sites`                 | Updates a site             |
 |`void`         | `DELETE api/sites/{id}`         | Deletes a site             |
-
-<!-- ## Demo Site
-http://52.8.239.60:8080/Sites/#/sites -->
 
 ## Build from source
 If you are familar with Spring framework and Angular, you can build the app from source and run your own instance.
